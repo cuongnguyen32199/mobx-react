@@ -1,19 +1,25 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import Todo from './TodoItem';
+import type { TodoItem } from './TodoItem';
+import AddTodo from './AddTodo';
 
-import Todo from './Todo';
-import type { TodoItem } from './Todo';
+import { useStore } from '../stores/TodoStore';
 
 export type PropTypes = {
-  todos: TodoItem[]
-}
+  todos: TodoItem[];
+};
 
-function TodoList({ todos }: PropTypes) {
+function TodoList() {
+  const store = useStore();
+
+  const todos = store.todos || [];
   return (
-    <div className="items">
-      { todos && todos.map((todo, index) => <Todo key={index} text={todo.text} completed={todo.completed} />) }
+    <div className="todos">
+      <AddTodo />
+      <div className="items">{todos && todos.map((todo, index) => <Todo key={index} id={todo.id} text={todo.text} completed={todo.completed} />)}</div>
     </div>
-  )
+  );
 }
 
 export default observer(TodoList);

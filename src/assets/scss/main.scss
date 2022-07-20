@@ -1,0 +1,70 @@
+@use 'fonts';
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.root {
+  display: flex;
+  padding: 50px;
+  width: 80%;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-size: 20px;
+  }
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.items {
+  margin-top: 10px;
+  max-width: 40vw;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40vw;
+  max-width: 40vw;
+  margin: 0 !important;
+  padding: 0 6px;
+  border-radius: 4px;
+  transition: background-color ease-out 0.2s;
+
+  &:hover {
+    background-color: aliceblue;
+  }
+
+  &__text {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
