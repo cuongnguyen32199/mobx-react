@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { Checkbox, FormControlLabel, makeStyles } from '@mui/material';
+import clsx from 'clsx';
+import { Checkbox, FormControlLabel } from '@mui/material';
 
 import { useStore } from '../stores/TodoStore';
 
@@ -22,7 +23,24 @@ function Todo({ id, text, completed }: PropsType) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     store.completed(id, e.target.checked);
   };
-  return <FormControlLabel label={<span className="item__text">{text}</span>} className="item" labelPlacement="start" control={<Checkbox checked={Boolean(completed)} onChange={handleChange} />} />;
+
+  return (
+    <FormControlLabel
+      title={String(text)}
+      sx={{
+        marginLeft: 0,
+        marginRight: 0,
+        justifyContent: 'space-between',
+        '& .MuiFormControlLabel-label': {
+          width: 'calc(100% - 42px)',
+        },
+      }}
+      className="item"
+      label={<span className={clsx({ item__text: true, 'item__text--completed': completed })}>{text}</span>}
+      labelPlacement="end"
+      control={<Checkbox checked={Boolean(completed)} onChange={handleChange} />}
+    />
+  );
 }
 
 export default observer(Todo);

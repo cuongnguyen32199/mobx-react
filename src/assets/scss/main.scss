@@ -1,4 +1,5 @@
 @use 'fonts';
+@use 'variables';
 
 * {
   box-sizing: border-box;
@@ -9,30 +10,33 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background-color: var(--gray-600);
 }
 
 .root {
-  display: flex;
-  padding: 50px;
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
   min-height: 100vh;
 }
 
 .container {
+  width: 40vw;
+  margin: 0 auto;
+}
+
+header {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  width: 100%;
+  align-items: center;
+}
+
+.logo {
+  width: 150px;
+  aspect-ratio: 1 / 1;
 }
 
 .todos {
   display: flex;
   flex-direction: column;
-
-  &__title {
-    font-size: 20px;
-  }
 }
 
 .form {
@@ -42,29 +46,28 @@ body {
 }
 
 .items {
-  margin-top: 10px;
-  max-width: 40vw;
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  gap: 16px;
 }
 
 .item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 40vw;
-  max-width: 40vw;
-  margin: 0 !important;
-  padding: 0 6px;
-  border-radius: 4px;
-  transition: background-color ease-out 0.2s;
-
-  &:hover {
-    background-color: aliceblue;
-  }
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: var(--gray-400);
 
   &__text {
+    color: var(--gray-100);
     display: block;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
+    transition: color ease-out 0.2s;
+
+    &--completed {
+      color: var(--gray-300);
+      text-decoration: line-through;
+    }
   }
 }

@@ -1,17 +1,27 @@
 import React from 'react';
+import { ThemeProvider, createTheme } from '@mui/material';
 import TodoList from './components/TodoList';
 import { StoreProvider } from './stores/TodoStore';
 import './assets/scss/main.scss';
 
+const darkTheme = createTheme({
+  palette: { mode: 'dark' },
+  typography: {
+    fontFamily: '"Poppins"',
+  },
+});
+
 function App() {
   return (
-    <StoreProvider>
-      <div className="root">
-        <div className="container">
-          <TodoList />
+    <ThemeProvider theme={darkTheme}>
+      <StoreProvider>
+        <div className="root">
+          <div className="container">
+            <TodoList />
+          </div>
         </div>
-      </div>
-    </StoreProvider>
+      </StoreProvider>
+    </ThemeProvider>
   );
 }
 
