@@ -1,6 +1,7 @@
 {
   "name": "mobx",
   "version": "0.1.0",
+  "homepage": "https://cuongnguyen32199.github.io/mobx-react/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -30,7 +31,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .ts,.tsx",
-    "linter": "eslint --fix --ext .ts,.tsx"
+    "linter": "eslint --fix --ext .ts,.tsx",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -60,6 +63,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "gh-pages": "^4.0.0",
     "sass": "^1.53.0"
   }
 }
