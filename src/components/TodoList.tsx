@@ -1,8 +1,11 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { Collapse } from '@mui/material';
+import { TransitionGroup } from 'react-transition-group';
+
 import Todo from './TodoItem';
-import type { TodoItem } from './TodoItem';
 import AddTodo from './AddTodo';
+import type { TodoItem } from './TodoItem';
 
 import logo from '../assets/logo.svg';
 import { useStore } from '../stores/TodoStore';
@@ -22,7 +25,13 @@ function TodoList() {
       </header>
       <div className="todos">
         <AddTodo />
-        <div className="items">{todos && todos.map((todo, index) => <Todo key={index} id={todo.id} text={todo.text} completed={todo.completed} />)}</div>
+        <TransitionGroup className="items">
+          {todos && todos.map((todo) => (
+            <Collapse key={String(todo.id)}>
+              <Todo id={todo.id} text={todo.text} completed={todo.completed} />
+            </Collapse>
+          ))}
+        </TransitionGroup>
       </div>
     </>
   );

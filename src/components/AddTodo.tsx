@@ -22,7 +22,7 @@ function AddTodo() {
     <form action="" onSubmit={handleSubmit} className="form">
       <TextField type="text" variant="outlined" size="medium" label="What need to be done" autoComplete="off" fullWidth value={text} onChange={(e) => setText(e.target.value)} />
     </form>
-);
+  );
 }
 
 export default observer(AddTodo);

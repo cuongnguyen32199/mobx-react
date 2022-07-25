@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import clsx from 'clsx';
 import { Checkbox, FormControlLabel } from '@mui/material';
+import { MdRemoveCircle } from 'react-icons/md';
 
 import { useStore } from '../stores/TodoStore';
 
@@ -25,21 +26,24 @@ function Todo({ id, text, completed }: PropsType) {
   };
 
   return (
-    <FormControlLabel
-      title={String(text)}
-      sx={{
-        marginLeft: 0,
-        marginRight: 0,
-        justifyContent: 'space-between',
-        '& .MuiFormControlLabel-label': {
-          width: 'calc(100% - 42px)',
-        },
-      }}
-      className="item"
-      label={<span className={clsx({ item__text: true, 'item__text--completed': completed })}>{text}</span>}
-      labelPlacement="end"
-      control={<Checkbox checked={Boolean(completed)} onChange={handleChange} />}
-    />
+    <div className="item-wrapper">
+      <FormControlLabel
+        title={String(text)}
+        sx={{
+          marginLeft: 0,
+          marginRight: 0,
+          justifyContent: 'space-between',
+          '& .MuiFormControlLabel-label': {
+            width: 'calc(100% - 42px)',
+          },
+        }}
+        className="item"
+        label={<span className={clsx({ item__text: true, 'item__text--completed': completed })}>{text}</span>}
+        labelPlacement="end"
+        control={<Checkbox checked={Boolean(completed)} onChange={handleChange} />}
+      />
+      <MdRemoveCircle className="item-wrapper__delete" onClick={() => store.remove(id)} />
+    </div>
   );
 }
 

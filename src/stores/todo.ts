@@ -27,6 +27,10 @@ export const createStore = () => {
       this.todos.push(todo);
       this.snapshot();
     },
+    remove(id: String) {
+      this.todos.splice(this.todos.findIndex((todo) => todo.id === id), 1);
+      this.snapshot();
+    }
   };
 }
 
