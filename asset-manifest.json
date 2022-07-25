@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/mobx-react/static/css/main.5eb12117.css",
+    "main.js": "/mobx-react/static/js/main.d0019d38.js",
+    "static/js/787.676f6012.chunk.js": "/mobx-react/static/js/787.676f6012.chunk.js",
+    "static/media/logo.svg": "/mobx-react/static/media/logo.86adebe9490574b965f79d19843be56f.svg",
+    "index.html": "/mobx-react/index.html",
+    "main.5eb12117.css.map": "/mobx-react/static/css/main.5eb12117.css.map",
+    "main.d0019d38.js.map": "/mobx-react/static/js/main.d0019d38.js.map",
+    "787.676f6012.chunk.js.map": "/mobx-react/static/js/787.676f6012.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5eb12117.css",
+    "static/js/main.d0019d38.js"
+  ]
+}
